@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchMovieData } from '../store/MovieSlice';
 import { Spin, Alert} from 'antd';
-import { throttle } from 'lodash';
+import { debounce } from 'lodash';
 import SearchArea from '../components/SearchArea';
 import MovieDataTable from '../components/MovieDataTable';
 import CustomPagination from '../components/CustomPagination';
@@ -62,7 +62,7 @@ const MoviePage = () => {
     }
   }, []);
   const handleYearChange = useCallback(
-    throttle((e) => {
+    debounce((e) => {
       try {
         const yearValue = e.target.value.trim();
         setYear(yearValue);
@@ -70,7 +70,7 @@ const MoviePage = () => {
       } catch (error) {
         console.error(error.message || 'Error handling year change'); 
       }
-    }, 2000),
+    }, 1000),
     []
   );
   
