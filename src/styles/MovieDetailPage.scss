@@ -1,0 +1,111 @@
+.product-detail-layout-header{
+  .product-detail-layout-header-button {
+    font-size: 20px;
+    height: 32px;
+    width: 32px;
+    border-radius: 6px;
+    margin-left: -32px;
+    margin-top: 10px;
+    color: white; // Varsayılan rengi koru
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #096dd9;
+        transform: scale(1.1);
+    }
+
+    &:hover svg {
+        color: white !important; 
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+  }
+}
+.product-detail-layout{
+  overflow: hidden;
+  max-height: 97vh;
+  height: 97vh;
+  background-color: #096dd9;
+
+  .product-detail-layout-header{
+    text-align: 'center';
+    color: white;
+    max-height: 7vh;
+    height: 75vh;
+    background-color: #096dd9;  
+  }
+  .product-detail-layout-content{
+    max-height: 77vh;
+    height: 77vh;
+    overflow: hidden;
+   
+    .product-detail-content{
+      margin-top: 0; 
+      padding-top: 0; 
+      max-height: 77vh;
+      height: 77vh;
+      border: 1px solid #096dd9;
+   
+    // Add radius to child components
+    .ant-card {      
+      max-height: 77vh;
+      height: 77vh;
+    }
+  }
+    .product-poster {
+     width: 100%;
+     max-height: 77vh;
+     height: 77vh;
+      background-color: white;
+      border: 1px solid #096dd9;
+      .ant-card {
+        
+        height: 100%;
+      }
+    }
+  }
+  .product-detail-footer{
+    position: absolute;
+    top:85vh;
+    width: 99vw;
+    height: 13vh;
+    background-color: #096dd9;
+    color: white;
+  }
+ 
+}
+.product-detail-spin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.product-detail-alert-container{
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'center';
+  height: '100vh' 
+}

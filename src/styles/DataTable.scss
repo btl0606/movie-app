@@ -1,0 +1,43 @@
+//Data Table Part
+.custom-table-container {
+    margin-top: 1vw;
+      position: relative;
+      left:7vw;
+      width:85vw;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+      // Override Antd Table styles
+      .ant-table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+        // Table header
+        .ant-table-thead > tr > th {
+          background-color: #096dd9;
+          color: white;
+          font-weight: bold;
+          border-bottom: none;
+        }
+    
+        // Table rows
+        .ant-table-tbody > tr {
+          transition: background-color 0.3s ease;
+    
+          &:hover > td {
+            background-color: #9cc4ef; 
+          }
+    
+          &:nth-child(even) {
+            background-color: #e6f0fb;
+          }
+    
+          &:nth-child(odd) {
+            background-color: white;
+          }
+        }
+     
+      }
+    }
