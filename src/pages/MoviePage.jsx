@@ -66,7 +66,10 @@ const MoviePage = () => {
     debounce((e) => {
       try {
         const yearValue = e.target.value.trim();
-        if (yearValue >= 1895 && yearValue <= currentYear) {
+        if (yearValue === '') {
+          setYearError(null);
+          setYear('');
+        } else if (yearValue >= 1895 && yearValue <= currentYear) {
           setYearError(null);
           setYear(yearValue);
           setPage(1);
