@@ -12,12 +12,8 @@ const SearchArea = ({ searchTerm, handleSearchTitle, handleYearChange, handleTyp
         <Option value="series">TV Series</Option>
         <Option value="episode">Episode</Option>
       </Select>
-      <Input 
-        className="production-year-search" 
-        placeholder="Year" 
-        onChange={handleYearChange}
-      />
+      <Input className="production-year-search" placeholder="Year" allowClear onChange={handleYearChange}  type="number" min="1895"/>
     </section>
   );  
 
-export default SearchArea
+export default SearchArea;

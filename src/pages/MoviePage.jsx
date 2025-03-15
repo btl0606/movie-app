@@ -17,7 +17,8 @@ const MoviePage = () => {
   const [year, setYear] = useState('');
   const [type, setType] = useState('movie');
   const [page, setPage] = useState(1);
-
+  const [yearError, setYearError] = useState(null);
+  const currentYear = new Date().getFullYear();
    
   const conditionalSearch = useCallback(() => {
     let searchQuery = '';
@@ -65,8 +66,12 @@ const MoviePage = () => {
     debounce((e) => {
       try {
         const yearValue = e.target.value.trim();
-        setYear(yearValue);
-        setPage(1);
+        if (yearValue >= 1895 && yearValue <= currentYear) {
+          setYearError(null);
+          setYear(yearValue);
+          setPage(1);
+        }
+        else{ setYearError(`Year must be between 1895 and ${currentYear}`);}
       } catch (error) {
         console.error(error.message || 'Error handling year change'); 
       }
@@ -79,6 +84,7 @@ const MoviePage = () => {
     <div className="production-page">
       <Spin size="large" spinning={status === 'loading'} tip="Loading movies..." >
       {error && <Alert message="Error" description={error} type="error" showIcon />}
+      {yearError && <Alert message="Error" description={yearError} type="error" showIcon />}
         <SearchArea 
           searchTerm={searchTerm}
           handleSearchTitle={handleSearchTitle}
